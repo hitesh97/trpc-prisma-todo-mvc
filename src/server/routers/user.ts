@@ -1,6 +1,6 @@
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { z } from 'zod';
-import { createUserSchema, requestOtpSchema, verifyOtpSchema } from '../../schema/user.schema';
+import { createUserSchema, requestOtpSchema, userLoginSchema, verifyOtpSchema } from '../../schema/user.schema';
 import * as trpc from '@trpc/server'
 import { baseProcedure, router } from '../trpc';
 import { sendLoginEmail } from '../../utils/mailer';
@@ -64,6 +64,35 @@ export const userRouter = router({
         message: 'Something went wrong',
       })
     }
+  }),
+  'login' : baseProcedure.input(userLoginSchema).mutation(async({ctx, input})=>{
+    const { email, password } = input;
+    const user = await ctx.prisma.user.findFirst({
+      where: {
+        email,
+        password
+      },
+    })
+
+    if (!user) {
+      throw new trpc.TRPCError({
+        code: 'NOT_FOUND',
+        message: 'User not found',
+      })
+    }
+
+    const token = await ctx.prisma.loginToken.create({
+      data: {
+        redirect:'/',
+        user: {
+          connect: {
+            id: user.id,
+          },
+        },
+      },
+    });
+
+    return encode(`${token.id}:${user.email}`);
   }),
   'request-otp' : baseProcedure.input(requestOtpSchema).mutation(async({ctx, input}) => {
     const { email, redirect } = input

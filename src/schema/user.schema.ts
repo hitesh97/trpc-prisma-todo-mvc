@@ -21,6 +21,14 @@ export const createUserOutputSchema = z.object({
 
 export type CreateUserInput = z.TypeOf<typeof createUserSchema>
 
+
+export const userLoginSchema = z.object({
+  email: z.string(),
+  password: z.string().min(6).max(12)
+})
+export type userLoginInput = z.TypeOf<typeof userLoginSchema>
+
+
 export const requestOtpSchema = z.object({
   email: z.string().email(),
   redirect: z.string().default('/'),

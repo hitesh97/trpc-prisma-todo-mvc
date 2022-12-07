@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { CreateUserInput } from '../schema/user.schema'
+import { userLoginInput } from '../schema/user.schema'
 import { trpc } from '../utils/trpc'
 
 const VerifyToken = ({ hash }: { hash: string }) => {
@@ -23,23 +23,23 @@ const VerifyToken = ({ hash }: { hash: string }) => {
 }
 
 function LoginForm() {
-  const { handleSubmit, register } = useForm<CreateUserInput>()
+  const { handleSubmit, register } = useForm<userLoginInput>()
   const [success, setSuccess] = useState(false)
   const router = useRouter()
 
-  const { mutate, error } = trpc.user['request-otp'].useMutation({
-    onSuccess: () => {
-      setSuccess(true)
+  const { mutate, error } = trpc.user.login.useMutation({
+    onSuccess: (token) => {
+      router.push(`${router.asPath}#token=${token}`);
     },
   })
 
-  function onSubmit(values: CreateUserInput) {
-    mutate({ ...values, redirect: router.asPath })
+  function onSubmit(values: userLoginInput) {
+    mutate(values)
   }
 
   const hash = router.asPath.split('#token=')[1]
 
-  if (hash) {
+  if (hash && hash.length > 0) {
     return <VerifyToken hash={hash} />
   }
 
@@ -55,6 +55,10 @@ function LoginForm() {
           type="email"
           placeholder="jane.doe@example.com"
           {...register('email')}
+        />
+        <input
+          type="password"
+          {...register('password')}
         />
         <button>Login</button>
       </form>
