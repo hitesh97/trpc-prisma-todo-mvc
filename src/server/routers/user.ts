@@ -79,7 +79,7 @@ export const userRouter = router({
 
       return true
   }),
-  'verify-otp': baseProcedure.input(verifyOtpSchema).mutation(async({ctx, input}) => {
+  'verify-otp': baseProcedure.input(verifyOtpSchema).query(async({ctx, input}) => {
     const decoded = decode(input.hash).split(':')
 
     const [id, email] = decoded
