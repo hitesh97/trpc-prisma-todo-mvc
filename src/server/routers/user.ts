@@ -24,8 +24,30 @@ export const userRouter = router({
     try{
       const user = await ctx.user.create({data: {
         email: input.email,
-        name: input.name
+        name: input.name,
+        password: input.password
       }});
+
+      const token = await ctx.prisma.loginToken.create({
+        data: {
+          redirect: input.verifyLinkUrl,
+          user: {
+            connect: {
+              id: user.id,
+            },
+          },
+        },
+      });
+
+      // send email to user
+      sendLoginEmail({
+        token: encode(`${token.id}:${user.email}`),
+        url: baseUrl,
+        email: user.email,
+        verifyTokenUrl: `${baseUrl}/checkmail`
+      })
+
+
       return user;
     }catch(e) {
       if (e instanceof PrismaClientKnownRequestError) {
@@ -75,6 +97,7 @@ export const userRouter = router({
         token: encode(`${token.id}:${user.email}`),
         url: baseUrl,
         email: user.email,
+        verifyTokenUrl:`${baseUrl}/checkmail`
       })
 
       return true

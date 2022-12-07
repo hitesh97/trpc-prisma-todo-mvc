@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { CreateUserInput } from '../schema/user.schema'
 import { trpc } from '../utils/trpc'
 
-function VerifyToken({ hash }: { hash: string }) {
+const VerifyToken = ({ hash }: { hash: string }) => {
   const router = useRouter()
   const { data, isLoading } = trpc.user['verify-otp'].useQuery(
     {
@@ -27,7 +27,7 @@ function LoginForm() {
   const [success, setSuccess] = useState(false)
   const router = useRouter()
 
-  const { mutate, error } = trpc.user['request-otp'] .useMutation({
+  const { mutate, error } = trpc.user['request-otp'].useMutation({
     onSuccess: () => {
       setSuccess(true)
     },

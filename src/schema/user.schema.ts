@@ -1,8 +1,17 @@
 import z from 'zod'
 
+export const verifyTokenSchema = z.object({
+  token: z.string()
+})
+export type VerifyTokenInput = z.TypeOf<typeof verifyTokenSchema>
+
+
 export const createUserSchema = z.object({
   name: z.string(),
+  password: z.string().min(6).max(12),
+  confirmPassword: z.string().min(6).max(12),
   email: z.string().email(),
+  verifyLinkUrl: z.string()
 })
 
 export const createUserOutputSchema = z.object({

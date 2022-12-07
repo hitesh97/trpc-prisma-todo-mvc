@@ -10,12 +10,12 @@ const RegisterPage = () => {
 
   const { mutate, error } = trpc.user.register.useMutation({
     onSuccess: () => {
-      router.push('/login')
+      router.push('/checkmail')
     },
   })
 
   function onSubmit(values: CreateUserInput) {
-    mutate(values)
+    mutate({...values, verifyLinkUrl:"/login"})
   }
   return (
     <>
@@ -30,6 +30,8 @@ const RegisterPage = () => {
         />
         <br />
         <input type="text" placeholder="Tom" {...register('name')} />
+        <input type="password" {...register('password')} />
+        <input type="password" {...register('confirmPassword')} />
         <button type="submit">Register</button>
       </form>
 
