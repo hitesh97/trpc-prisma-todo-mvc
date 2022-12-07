@@ -103,9 +103,12 @@ export const userRouter = router({
       })
     }
 
+    const {id : userId, email: userEmail} = token.user;
+    const updatedUser = await ctx.prisma.user.update({where: {id: userId}, data: { verified: true }})
+
     const jwt = signJwt({
-      email: token.user.email,
-      id: token.user.id,
+      email: userEmail,
+      id: userId,
     })
 
     ctx.res?.setHeader('Set-Cookie', serialize('token', jwt, { path: '/' }))

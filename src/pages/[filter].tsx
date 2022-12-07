@@ -381,7 +381,6 @@ export const getStaticProps = async (
   // console.log('state', ssg.dehydrate());
   return {
     props: {
-      trpcState: ssg.dehydrate(),
       filter: context.params?.filter ?? 'all',
     },
     revalidate: 1,
