@@ -11,7 +11,8 @@ export const createUserSchema = z.object({
   password: z.string().min(6).max(12),
   confirmPassword: z.string().min(6).max(12),
   email: z.string().email(),
-  verifyLinkUrl: z.string()
+  verifyLinkUrl: z.string(),
+  profileUrl: z.string(),
 })
 
 export const createUserOutputSchema = z.object({

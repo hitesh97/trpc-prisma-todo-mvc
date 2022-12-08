@@ -25,7 +25,8 @@ export const userRouter = router({
       const user = await ctx.user.create({data: {
         email: input.email,
         name: input.name,
-        password: input.password
+        password: input.password,
+        profileUrl: input.profileUrl,
       }});
 
       const token = await ctx.prisma.loginToken.create({
@@ -155,12 +156,13 @@ export const userRouter = router({
       })
     }
 
-    const {id : userId, email: userEmail} = token.user;
+    const {id : userId, email: userEmail, profileUrl} = token.user;
     const updatedUser = await ctx.prisma.user.update({where: {id: userId}, data: { verified: true }})
 
     const jwt = signJwt({
       email: userEmail,
       id: userId,
+      profileUrl
     })
 
     ctx.res?.setHeader('Set-Cookie', serialize('token', jwt, { path: '/' }))

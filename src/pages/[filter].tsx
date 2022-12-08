@@ -378,7 +378,6 @@ export const getStaticProps = async (
 
   await ssg.todo.all.fetch();
 
-  // console.log('state', ssg.dehydrate());
   return {
     props: {
       filter: context.params?.filter ?? 'all',

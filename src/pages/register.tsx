@@ -32,6 +32,7 @@ const RegisterPage = () => {
         <input type="text" placeholder="Tom" {...register('name')} />
         <input type="password" {...register('password')} />
         <input type="password" {...register('confirmPassword')} />
+        <input type="text" {...register('profileUrl')} />
         <button type="submit">Register</button>
       </form>
 

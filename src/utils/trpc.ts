@@ -6,7 +6,6 @@ import { createTRPCNext } from '@trpc/next';
 import superjson from 'superjson';
 import { url } from '../../constants';
 import type { AppRouter } from '../server/routers/_app';
-import { getSessionAuth } from './ssrHelper';
 
 /**
  * A set of strongly-typed React hooks from your `AppRouter` type signature with `createReactQueryHooks`.
@@ -50,3 +49,5 @@ export const trpc = createTRPCNext<AppRouter>({
    */
   ssr: false,
 });
+
+export type trpcType = typeof trpc;
