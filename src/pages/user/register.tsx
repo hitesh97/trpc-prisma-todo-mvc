@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { CreateUserInput } from "../schema/user.schema";
+import { CreateUserInput } from "../../schema/user.schema";
 import { useRouter } from "next/router";
-import { trpc } from '../utils/trpc';
+import { trpc } from '../../utils/trpc';
 import Link from "next/link";
 
 const RegisterPage = () => {

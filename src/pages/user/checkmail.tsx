@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { VerifyTokenInput } from "../schema/user.schema";
+import { VerifyTokenInput } from "../../schema/user.schema";
 import { useRouter } from "next/router";
 
 function CheckEmailPage() {
