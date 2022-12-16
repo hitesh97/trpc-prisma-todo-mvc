@@ -1,10 +1,11 @@
 import { createStyles, Title, Text, Button, Container } from '@mantine/core';
+import { ContactUsForm } from './ContactUsForm';
 import { Dots } from './dots';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
-    paddingTop: 120,
+    paddingTop: 80,
     paddingBottom: 80,
 
     '@media (max-width: 755px)': {
@@ -62,9 +63,6 @@ const useStyles = createStyles((theme) => ({
 
   controls: {
     marginTop: theme.spacing.lg,
-    display: 'flex',
-    justifyContent: 'center',
-
     '@media (max-width: 520px)': {
       flexDirection: 'column',
     },
@@ -99,27 +97,29 @@ export function HeroWithText() {
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Automated AI{' '}
+          How can we {' '}
           <Text component="span" className={classes.highlight} inherit>
-            code reviews
+            help
           </Text>{' '}
-          for any stack
+          You?
         </Title>
 
         <Container p={0} size={600}>
           <Text size="lg" color="dimmed" className={classes.description}>
-            Build more reliable software with AI companion. AI is also trained to detect lazy
-            developers who do nothing and just complain on Twitter.
+            Interested in finding out more or would like to discuss your next big idea, that you would like to bring to life.
           </Text>
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} size="lg" variant="default" color="gray">
+          {/* <Button className={classes.control} size="lg" variant="default" color="gray">
             Book a demo
           </Button>
-          <Button className={classes.control} size="lg">
-            Purchase a license
+                    <Button className={classes.control} size="lg">
+            Contact Us
           </Button>
+          */}
+          <ContactUsForm />
+
         </div>
       </div>
     </Container>

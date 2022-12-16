@@ -1,6 +1,7 @@
 import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col, Container } from '@mantine/core';
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons';
 
+
 const useStyles = createStyles((theme) => ({
   wrapper: {
     padding: `${theme.spacing.xl}px ${theme.spacing.xl}px`,
@@ -64,18 +65,19 @@ export function FeaturesWithTitle() {
   ));
 
   return (
-    <Container size="xl" py={64}>
+    <Container size="lg" className={classes.wrapper}>
       <Grid gutter={80}>
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>
-            A fully featured React components library for your next project
+            Our Tech Stack
           </Title>
           <Text color="dimmed">
-            Build fully functional accessible web applications faster than ever – Mantine includes
-            more than 120 customizable components and hooks to cover you in any situation
+            We are always learning and experimenting with new tech stach as it becomes available.
+            We suggest and provide consultation to our clients based on which tech stack will be best for their software product.
+            Following are some of the tech stack we have acquired knowledge and expertise on.
           </Text>
 
-          <Button
+          {/* <Button
             variant="gradient"
             gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
             size="lg"
@@ -83,7 +85,7 @@ export function FeaturesWithTitle() {
             mt="xl"
           >
             Get started
-          </Button>
+          </Button> */}
         </Col>
         <Col span={12} md={7}>
           <SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>

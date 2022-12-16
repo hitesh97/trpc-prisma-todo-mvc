@@ -18,7 +18,7 @@ import {
   ScrollArea,
   Avatar,
 } from '@mantine/core';
-import { MantineLogo } from '@mantine/ds';
+// import { MantineLogo } from '@mantine/ds';
 import { useDisclosure } from '@mantine/hooks';
 import {
   IconNotification,
@@ -33,6 +33,8 @@ import { useUserAuthenticated } from '../providers/authProider/AuthProvider';
 // import { UseAuthStatus } from './AppContext';
 import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle';
 import { UserAvatar, UserProfileMockData } from './UserAvatar';
+import { AkrutiConsIcon } from './AkrutiConsIcon';
+
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -191,14 +193,16 @@ export function AppHeader() {
   return (
     <Box pb={120}>
       <Header height={60} px="md">
-        <Group position="apart" sx={{ height: '100%' }}>
-          <MantineLogo size={30} />
-
+        <Group position="apart" sx={{ height: '100%'}}>
+          {/* <MantineLogo size={30} /> */}
+          <Group>
+            <AkrutiConsIcon />
+          </Group>
           <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile} ml="auto">
             <a href="/" className={classes.link}>
               Home
             </a>
-            <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
+            {/* <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>
                   <Center inline>
@@ -242,7 +246,7 @@ export function AppHeader() {
                   </Group>
                 </div>
               </HoverCard.Dropdown>
-            </HoverCard>
+            </HoverCard> */}
             <a href="#" className={classes.link}>
               Learn
             </a>

@@ -1,7 +1,7 @@
 import { createGetInitialProps, ServerStyles, createStylesServer} from '@mantine/next';
 import Document, { Head, Html, Main, NextScript, DocumentContext } from 'next/document';
 
-const getInitialProps = createGetInitialProps();
+// const getInitialProps = createGetInitialProps();
 
 // export default class _Document extends Document {
 //   static getInitialProps = getInitialProps;

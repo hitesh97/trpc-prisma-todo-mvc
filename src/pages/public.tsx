@@ -1,3 +1,4 @@
+import { Container } from "@mantine/core";
 import type { NextPage } from "next";
 import { ActionCardsGrid } from "../components/ActionCardsGrid";
 import { FeaturesWithCards } from "../components/FeaturesWithCards";
@@ -13,15 +14,16 @@ import { HeroWithText } from "../components/HeroWithText";
 const PublicArea: NextPage = () => {
   return (
     <>
-      <HeroCarousel />
-      <HeroWithText />
+      {/*<HeroCarousel />*/}
       <HeroWithBullets />
+      <FeaturesWithImageIcons /> 
+      <HeroWithText />
       <FeaturesWithTitle />
-      <FeaturesWithCards />
+      {/* <FeaturesWithCards />
       <FeaturesWithIcons />
-      <ActionCardsGrid />
-      <FeaturesWithMontoneIcons />
-      <FeaturesWithImageIcons />
+  <ActionCardsGrid /> 
+      <FeaturesWithMontoneIcons /> */}
+
     </>
   );
 };

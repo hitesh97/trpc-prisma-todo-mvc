@@ -71,11 +71,10 @@ export function HeroWithBullets() {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              A <span className={classes.highlight}>modern</span> React <br /> components library
+              We <span className={classes.highlight}>deliver</span> modern <br /> technology solutions
             </Title>
             <Text color="dimmed" mt="md">
-              Build fully functional accessible web applications faster than ever – Mantine includes
-              more than 120 customizable components and hooks to cover you in any situation
+              Build fully functional accessible web and mobile applications faster than ever – We choose modern technology stack that suits your need today and deliver solutions promptly.
             </Text>
 
             <List
@@ -89,27 +88,30 @@ export function HeroWithBullets() {
               }
             >
               <List.Item>
-                <b>TypeScript based</b> – build type safe applications, all components and hooks
-                export types
+                <b>Collaborative</b> – We strive to collaborate with our clients at every phase of the SDLC. We align with your business mission, values.
               </List.Item>
               <List.Item>
-                <b>Free and open source</b> – all packages have MIT license, you can use Mantine in
-                any project
+                <b>Transparent</b> – We are always transparent with our clients during every phase of the engagement.
               </List.Item>
               <List.Item>
-                <b>No annoying focus ring</b> – focus ring will appear only when user navigates with
-                keyboard
+                <b>Expert team</b> – We have access to some of the worlds best talent pool onshore, nearshore and offshore.
+              </List.Item>
+              <List.Item>
+                <b>Truly Agile</b> – We believe in Agile methodology in every phase, be it, inception, design, project management, build or deploy
+              </List.Item>
+              <List.Item>
+                <b>Commited to Quality</b> – We invest a lot of time understanding your needs and strive to deliver high quality solutions that provide business value to our customers.
               </List.Item>
             </List>
 
-            <Group mt={30}>
+            {/* <Group mt={30}>
               <Button radius="xl" size="md" className={classes.control}>
                 Get started
               </Button>
               <Button variant="default" radius="xl" size="md" className={classes.control}>
                 Source code
               </Button>
-            </Group>
+            </Group> */}
           </div>
           <Image src={image.src} className={classes.image} />
         </div>
