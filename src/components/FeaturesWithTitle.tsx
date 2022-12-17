@@ -1,5 +1,10 @@
-import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col, Container } from '@mantine/core';
+import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col, Container, Image } from '@mantine/core';
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons';
+import { GrReactjs, GrHtml5 } from 'react-icons/gr';
+import {SiTypescript, SiJavascript, SiCsswizardry} from 'react-icons/si'
+import {FaAws} from 'react-icons/fa'
+import {DiNodejs} from 'react-icons/di'
+import TexhIcons from "../images/tech";
 
 
 const useStyles = createStyles((theme) => ({
@@ -19,27 +24,83 @@ const useStyles = createStyles((theme) => ({
 
 const features = [
   {
-    icon: IconReceiptOff,
+    icon: "reactjs",
     title: 'Free and open source',
     description: 'All packages are published under MIT license, you can use Mantine in any project',
   },
+
   {
-    icon: IconFileCode,
-    title: 'TypeScript based',
-    description: 'Build type safe applications, all components and hooks export types',
-  },
-  {
-    icon: IconCircleDotted,
+    icon: "typeScript",
     title: 'No annoying focus ring',
     description:
       'With new :focus-visible selector focus ring will appear only when user navigates with keyboard',
   },
   {
-    icon: IconFlame,
+    icon: "javaScript",
     title: 'Flexible',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
+  {
+    icon: "html5",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "css3",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "gatsbyJs",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  
+  {
+    icon: "nextjs",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "nodeJs",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "dotNet",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "wordpress",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "aws",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "azure",
+    title: 'TypeScript based',
+    description: 'Build type safe applications, all components and hooks export types',
+  },
+  {
+    icon: "googleCloud",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  }
 ];
 
 export function FeaturesWithTitle() {
@@ -48,25 +109,28 @@ export function FeaturesWithTitle() {
   const items = features.map((feature) => (
     <div key={feature.title}>
       <ThemeIcon
-        size={44}
+        size={64}
         radius="md"
         variant="gradient"
+        bg="transparent"
         gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
       >
-        <feature.icon size={26} stroke={1.5} />
+        <Image src={TexhIcons[feature.icon]} style={{stroke: "red"}} />
+
       </ThemeIcon>
-      <Text size="lg" mt="sm" weight={500}>
+      {/* <Text size="lg" mt="sm" weight={500}>
         {feature.title}
       </Text>
       <Text color="dimmed" size="sm">
         {feature.description}
-      </Text>
+      </Text> */}
     </div>
   ));
 
   return (
     <Container size="lg" className={classes.wrapper}>
       <Grid gutter={80}>
+        
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>
             Our Tech Stack
@@ -88,7 +152,7 @@ export function FeaturesWithTitle() {
           </Button> */}
         </Col>
         <Col span={12} md={7}>
-          <SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+          <SimpleGrid cols={6} spacing={10} breakpoints={[{ maxWidth: 'md', cols: 4 }, { maxWidth: 'sm', cols: 2 }]}>
             {items}
           </SimpleGrid>
         </Col>

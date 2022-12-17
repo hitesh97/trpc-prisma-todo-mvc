@@ -1,5 +1,3 @@
-import React, { ReactElement, SVGProps } from 'react';
-
 import accountants from './accountants.svg';
 import auditors from './auditors.svg';
 import lawyers from './lawyers.svg';

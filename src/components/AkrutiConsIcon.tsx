@@ -56,7 +56,7 @@ export function AkrutiConsIcon({
     </g>
   </svg>;
   return (
-    <Group sx={{ height: "100%" }} spacing={0} ml="auto">
+    <Group sx={{ height: "100%" }} spacing={0}  >
       <div style={{ marginRight: "10px" }}>
         {svgComponent}
       </div>
