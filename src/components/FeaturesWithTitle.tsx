@@ -1,15 +1,10 @@
 import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col, Container, Image } from '@mantine/core';
-import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons';
-import { GrReactjs, GrHtml5 } from 'react-icons/gr';
-import {SiTypescript, SiJavascript, SiCsswizardry} from 'react-icons/si'
-import {FaAws} from 'react-icons/fa'
-import {DiNodejs} from 'react-icons/di'
 import TexhIcons from "../images/tech";
 
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    padding: `${theme.spacing.xl}px ${theme.spacing.xl}px`,
+    padding: `${theme.spacing.xl * 2}px ${theme.spacing.xl * 2}px`,
   },
 
   title: {
@@ -28,7 +23,24 @@ const features = [
     title: 'Free and open source',
     description: 'All packages are published under MIT license, you can use Mantine in any project',
   },
-
+  {
+    icon: "nextjs",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "gatsbyJs",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
+  {
+    icon: "wordpress",
+    title: 'Flexible',
+    description:
+      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+  },
   {
     icon: "typeScript",
     title: 'No annoying focus ring',
@@ -54,19 +66,6 @@ const features = [
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
-    icon: "gatsbyJs",
-    title: 'Flexible',
-    description:
-      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
-  },
-  
-  {
-    icon: "nextjs",
-    title: 'Flexible',
-    description:
-      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
-  },
-  {
     icon: "nodeJs",
     title: 'Flexible',
     description:
@@ -74,12 +73,6 @@ const features = [
   },
   {
     icon: "dotNet",
-    title: 'Flexible',
-    description:
-      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
-  },
-  {
-    icon: "wordpress",
     title: 'Flexible',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
@@ -128,7 +121,7 @@ export function FeaturesWithTitle() {
   ));
 
   return (
-    <Container size="lg" className={classes.wrapper}>
+    <Container size="lg" className={classes.wrapper} id="ourtechstack">
       <Grid gutter={80}>
         
         <Col span={12} md={5}>
@@ -136,9 +129,10 @@ export function FeaturesWithTitle() {
             Our Tech Stack
           </Title>
           <Text color="dimmed">
-            We are always learning and experimenting with new tech stach as it becomes available.
-            We suggest and provide consultation to our clients based on which tech stack will be best for their software product.
-            Following are some of the tech stack we have acquired knowledge and expertise on.
+            Whilst we are always learning and experimenting with new tech stach as it becomes available.
+            We have expertise on some of the best Frontend and backend technologies for many of our clients.
+            We provide consultation to our clients based on the tech stack will be best for their software product.
+            Following are some of the tech stack we have acquired expertise on.
           </Text>
 
           {/* <Button

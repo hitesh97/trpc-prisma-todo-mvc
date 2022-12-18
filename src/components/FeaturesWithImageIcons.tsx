@@ -7,13 +7,13 @@ const mainData = {
     "data": [
       {
         "image": "frontEnd",
-        "title": "Fronend Development",
+        "title": "Frontend Development",
         "description": "The main objective of front-end development is to ensure that everything a user sees and interacts with on the screen is understandable, intuitive, and responsive. These values are kept in mind from the ground up."
       },
       {
-        "image": "backendCloud",
-        "title": "Cloud platform development support",
-        "description": "We help you to start your first project on market leading cloud platforms or we can migrate from one provider to another, with our in house experts."
+        "image": "testingServices",
+        "title": "Software Testing",
+        "description": "We provide maual and automated testing to allow our clients to have confidence on the product releases."
       },
       {
         "image": "businessProcess",
@@ -21,20 +21,23 @@ const mainData = {
         "description": "We can cater for writing cross-platform applications and frameworks that provide native experience on the UI."
       },
       {
-        "image": "softwareSolutions",
-        "title": "Turn key technology solutions",
-        "description": "We provide some of the existing and open source solutions to your needs, which are very simple and easy to start developing on."
+        "image": "backendCloud",
+        "title": "Cloud platform development support",
+        "description": "We help you to start your first project on market leading cloud platforms or we can migrate from one provider to another, with our in house experts."
       },
+      
       {
         "image": "technologyAdvisory",
         "title": "Customer service solutions",
         "description": "Provide excellent customer service and fast response times to our clients."
       },
       {
-        "image": "testingServices",
-        "title": "Software Testing",
-        "description": "We provide maual and automated testing to allow our clients to have confidence on the product releases."
+        "image": "softwareSolutions",
+        "title": "Turn key technology solutions",
+        "description": "We provide some of the existing and open source solutions to your needs, which are very simple and easy to start developing on."
       },
+      
+
       // {
       //   "image": "dataServices",
       //   "title": "Data analytic services",
@@ -50,7 +53,7 @@ const mainData = {
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    paddingTop: 80,
+    paddingTop: 50,
     paddingBottom: 50,
   },
 
@@ -77,7 +80,7 @@ const useStyles = createStyles((theme) => ({
     textAlign: 'center',
     textTransform: 'uppercase',
     fontWeight: 800,
-    fontSize: theme.fontSizes.sm,
+    fontSize: theme.fontSizes.xl * 2,
     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
     letterSpacing: 0.5,
   },
@@ -119,8 +122,7 @@ export function FeaturesWithImageIcons({ supTitle = mainData.supTitle, descripti
   const { classes } = useStyles();
 
   const items = data.map((item) => (
-    <div className={classes.item} key={item.image} style={{padding: "20px"}}>
-
+    <div className={classes.item} key={item.image} style={{padding: "20px"}} id="ourservices">
         {/* <ThemeIcon variant="light" className={classes.itemIcon} size={60} radius="md">
           <Image src={IMAGES[item.image]} />
         </ThemeIcon> */}

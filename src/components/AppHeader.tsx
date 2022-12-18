@@ -247,11 +247,14 @@ export function AppHeader() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard> */}
-            <a href="#" className={classes.link}>
-              Learn
+            <a href="#ourservices" className={classes.link}>
+              Our services
             </a>
-            <a href="#" className={classes.link}>
-              Academy
+            <a href="#ourtechstack" className={classes.link}>
+            Our Tech Stack
+            </a>
+            <a href="#contactus" className={classes.link}>
+            Contact Us
             </a>
             {isOnline && <UserProfileMenuItem />}
           </Group>
@@ -291,12 +294,15 @@ export function AppHeader() {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Learn
+          <a href="#ourservices" className={classes.link}>
+            Our services
           </a>
-          <a href="#" className={classes.link}>
-            Academy
+          <a href="#ourtechstack" className={classes.link}>
+          Our Tech sStack
           </a>
+          <a href="#contactus" className={classes.link}>
+            Contact Us
+            </a>
           {isOnline && (
             <>
               <UnstyledButton className={classes.link} onClick={openUserProfile}>

@@ -85,11 +85,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function HeroWithText() {
+export function ContactUs() {
   const { classes } = useStyles();
 
   return (
-    <Container  className={classes.wrapper} size={"md"}>
+    <Container  className={classes.wrapper} size={"md"} id="contactus">
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
       <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
       <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
