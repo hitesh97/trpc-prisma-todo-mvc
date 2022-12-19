@@ -1100,6 +1100,11 @@ ecdsa-sig-formatter@1.0.11:
   dependencies:
     safe-buffer "^5.0.1"
 
+embla-carousel-auto-height@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/embla-carousel-auto-height/-/embla-carousel-auto-height-7.0.5.tgz#acf230de04eb6f5bde7fc8edeefab33591e36dbb"
+  integrity sha512-TbJCPO2KDd1zW1IScFFCUrH4y0ph6EL8FV1YimBb9RVuGmhpCU7rd/t1xUD5TGOF35CNXj27s6P/tGi0lyWg+A==
+
 embla-carousel-autoplay@^7.0.5:
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/embla-carousel-autoplay/-/embla-carousel-autoplay-7.0.5.tgz#d411cd7d3ea8edd907ef26330ad8524c5ebf174b"

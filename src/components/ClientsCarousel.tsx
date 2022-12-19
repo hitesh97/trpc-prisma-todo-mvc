@@ -1,37 +1,34 @@
 import { useRef, useState } from "react";
-import { Carousel } from '@mantine/carousel';
-import { useMediaQuery } from '@mantine/hooks';
-import { createStyles, Image, useMantineTheme, ThemeIcon, Container } from '@mantine/core';
-import IMAGES from '../images/clients';
-import Autoplay from 'embla-carousel-autoplay';
+import { Carousel } from "@mantine/carousel";
+import { useMediaQuery } from "@mantine/hooks";
+import {
+  createStyles,
+  Image,
+  useMantineTheme,
+  ThemeIcon,
+  Container,
+  Title,
+} from "@mantine/core";
+import IMAGES from "../images/clients";
+import Autoplay from "embla-carousel-autoplay";
+import Autoheight from "embla-carousel-auto-height";
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    height: 440,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  titleContainer: {
-    marginBottom: '50px',
-  },
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontSize: 36,
     fontWeight: 900,
-    color: theme.white,
-    lineHeight: 1.2,
-    fontSize: 32,
-    marginTop: theme.spacing.xs,
+    lineHeight: 1.3,
+    marginBottom: theme.spacing.md,
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
-
-  category: {
-    color: theme.white,
-    opacity: 0.7,
-    fontWeight: 700,
-    textTransform: 'uppercase',
+  highlight: {
+    backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+    padding: 5,
+    paddingTop: 0,
+    borderRadius: theme.radius.sm,
+    display: 'inline-block',
+    color: theme.colorScheme === 'dark' ? theme.white : 'inherit',
   },
 }));
 
@@ -39,59 +36,59 @@ interface CardProps {
   image: string;
 }
 
-
 const data = [
   {
-    image:
-      'oneE',
+    image: "oneE",
   },
   {
-    image:
-      'bmigroup',
+    image: "bmigroup",
   },
   {
-    image:
-      'britInsurance',
+    image: "britInsurance",
   },
   {
-    image:
-      'bskyb',
+    image: "bskyb",
   },
   {
-    image:
-      'haysRecruitment',
+    image: "haysRecruitment",
   },
   {
-    image:
-      'mclaren',
-  },{
-    image:
-      'merrillLynch',
-  },{
-    image:
-      'reedExhibitions',
-  },{
-    image:
-      'samsung',
-  },{
-    image:
-      'siemens',
-  }
+    image: "mclaren",
+  },
+  {
+    image: "merrillLynch",
+  },
+  {
+    image: "reedExhibitions",
+  },
+  {
+    image: "samsung",
+  },
+  {
+    image: "siemens",
+  },
 ];
 
 function Card({ image }: CardProps) {
-  const { classes } = useStyles();
-
   return (
-    <ThemeIcon variant="light"  size={64} radius="md" sx={{stroke: "green", backgroundColor:"transparent"}}>
-      <Image src={IMAGES[image]} style={{stroke: "red"}}/></ThemeIcon>
+    <ThemeIcon
+      variant="light"
+      size={64}
+      radius="md"
+      sx={{ stroke: "green", backgroundColor: "transparent" }}
+    >
+      <Image src={IMAGES[image]} style={{ stroke: "red" }} />
+    </ThemeIcon>
   );
 }
 
 export function ClientsCarousel() {
+  const { classes } = useStyles();
+
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
   const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const autoheight = useRef(Autoheight({ destroyHeight: "auto" }));
   const slides = data.map((item) => (
     <Carousel.Slide key={item.image}>
       <Card {...item} />
@@ -99,21 +96,23 @@ export function ClientsCarousel() {
   ));
 
   return (
-    <Container size="lg" py="xl">
-    <Carousel
-      breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
-      slideGap="xl"
-      align="start"
-      slidesToScroll={mobile ? 2 : 3}
-      loop
-      slideSize="20%"
-      withControls={false}
-      withIndicators={false}
-      plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={ autoplay.current.reset}
-    >
-      {slides}
-    </Carousel></Container>
+    <Container size="lg" py={2 * theme.spacing.xl}>
+      <Title className={classes.title}>Our <span className={classes.highlight}>Clients</span></Title>
+      <Carousel
+        breakpoints={[{ maxWidth: "sm", slideSize: "50%" }]}
+        slideGap="sm"
+        align="start"
+        slidesToScroll={mobile ? 1 : 1}
+        loop
+        slideSize="20%"
+        withControls={false}
+        withIndicators={false}
+        plugins={[autoplay.current, autoheight.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={autoplay.current.reset}
+      >
+        {slides}
+      </Carousel>
+    </Container>
   );
 }

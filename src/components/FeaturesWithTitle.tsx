@@ -4,7 +4,9 @@ import TexhIcons from "../images/tech";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    padding: `${theme.spacing.xl * 2}px ${theme.spacing.xl * 2}px`,
+    paddingTop: `${theme.spacing.xl * 2}px`,
+    paddingBottom: `${theme.spacing.xl * 2}px`,
+    
   },
 
   title: {
@@ -14,6 +16,14 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1.1,
     marginBottom: theme.spacing.md,
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+  },
+  highlight: {
+    backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+    padding: 5,
+    paddingTop: 0,
+    borderRadius: theme.radius.sm,
+    display: 'inline-block',
+    color: theme.colorScheme === 'dark' ? theme.white : 'inherit',
   },
 }));
 
@@ -122,11 +132,11 @@ export function FeaturesWithTitle() {
 
   return (
     <Container size="lg" className={classes.wrapper} id="ourtechstack">
-      <Grid gutter={80}>
+      <Grid>
         
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>
-            Our Tech Stack
+            Our <span className={classes.highlight}>Tech Stack</span>
           </Title>
           <Text color="dimmed">
             Whilst we are always learning and experimenting with new tech stach as it becomes available.

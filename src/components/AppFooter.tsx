@@ -133,7 +133,6 @@ export function AppFooter({ data }: FooterLinksProps) {
         className={classes.link}
         component="a"
         href={link.link}
-        onClick={(event) => event.preventDefault()}
       >
         {link.label}
       </Text>
@@ -154,7 +153,7 @@ export function AppFooter({ data }: FooterLinksProps) {
           <AkrutiConsIcon />
 
           <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+          {siteInfo.tagLine}
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>

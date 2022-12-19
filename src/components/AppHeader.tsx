@@ -6,9 +6,7 @@ import {
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
   Divider,
   Center,
   Box,
@@ -18,7 +16,6 @@ import {
   ScrollArea,
   Avatar,
 } from '@mantine/core';
-// import { MantineLogo } from '@mantine/ds';
 import { useDisclosure } from '@mantine/hooks';
 import {
   IconNotification,
@@ -30,7 +27,6 @@ import {
   IconChevronDown,
 } from '@tabler/icons';
 import { useUserAuthenticated } from '../providers/authProider/AuthProvider';
-// import { UseAuthStatus } from './AppContext';
 import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle';
 import { UserAvatar, UserProfileMockData } from './UserAvatar';
 import { AkrutiConsIcon } from './AkrutiConsIcon';
@@ -40,7 +36,7 @@ const useStyles = createStyles((theme) => ({
   link: {
     display: 'flex',
     alignItems: 'center',
-    height: '100%',
+    height: '90%',
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     textDecoration: 'none',
@@ -192,9 +188,8 @@ export function AppHeader() {
   };
   return (
     <Box pb={120}>
-      <Header height={60} px="md">
+      <Header height={68} px="md">
         <Group position="apart" sx={{ height: '100%'}}>
-          {/* <MantineLogo size={30} /> */}
           <Group>
             <AkrutiConsIcon />
           </Group>
@@ -202,6 +197,7 @@ export function AppHeader() {
             <a href="/" className={classes.link}>
               Home
             </a>
+            {/* keeping this as we want to bring back this menu soon! */}
             {/* <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>

@@ -10,6 +10,7 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { IconCheck } from "@tabler/icons";
+import { siteInfo }from "../siteData/siteInfo";
 import image from "../images/image.svg";
 
 const useStyles = createStyles((theme) => ({
@@ -78,8 +79,7 @@ export function HeroWithBullets() {
             technology solutions
           </Title>
           <Text color="dimmed" mt="md">
-            Build fully functional accessible web and mobile applications faster
-            than ever – We choose modern technology stack that suits your need
+            {siteInfo.tagLine} – We choose modern technology stack that suits your need
             today and deliver solutions promptly.
           </Text>
 

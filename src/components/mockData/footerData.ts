@@ -1,65 +1,46 @@
+
+export const siteLinks = {
+  contactUs: "#contactus",
+  ourservices: "#ourservices",
+  ourtechstack:"#ourtechstack",
+  login: "user/login",
+  signUp: "user/signup"
+}
+
 export default {
   data: [
     {
-      title: 'About',
+      title: "",
       links: [
         {
-          label: 'Features',
-          link: '#',
+          label: "Our services",
+          link: siteLinks.ourservices,
         },
         {
-          label: 'Pricing',
-          link: '#',
-        },
-        {
-          label: 'Support',
-          link: '#',
-        },
-        {
-          label: 'Forums',
-          link: '#',
+          label: "Login",
+          link: siteLinks.login,
         },
       ],
     },
     {
-      title: 'Project',
+      title: "",
       links: [
         {
-          label: 'Contribute',
-          link: '#',
+          label: "Our Tech Stack",
+          link: siteLinks.ourtechstack,
         },
         {
-          label: 'Media assets',
-          link: '#',
-        },
-        {
-          label: 'Changelog',
-          link: '#',
-        },
-        {
-          label: 'Releases',
-          link: '#',
+          label: "Sign up",
+          link: siteLinks.signUp,
         },
       ],
     },
     {
-      title: 'Community',
+      title: "",
       links: [
         {
-          label: 'Join Discord',
-          link: '#',
-        },
-        {
-          label: 'Follow on Twitter',
-          link: '#',
-        },
-        {
-          label: 'Email newsletter',
-          link: '#',
-        },
-        {
-          label: 'GitHub discussions',
-          link: '#',
+          label: "Contact Us",
+          link: siteLinks.contactUs,
         },
       ],
     },
