@@ -126,7 +126,7 @@ interface FooterLinksProps {
 export function AppFooter({ data }: FooterLinksProps) {
   const { classes } = useStyles();
 
-  const groups = data.map((group) => {
+  const groups = data.map((group, grpIndex) => {
     const links = group.links.map((link, index) => (
       <Text<"a">
         key={index}
@@ -139,7 +139,7 @@ export function AppFooter({ data }: FooterLinksProps) {
     ));
 
     return (
-      <div className={classes.wrapper} key={group.title}>
+      <div className={classes.wrapper} key={grpIndex}>
         <Text className={classes.title}>{group.title}</Text>
         {links}
       </div>

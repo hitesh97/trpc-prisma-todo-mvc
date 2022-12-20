@@ -30,77 +30,77 @@ const useStyles = createStyles((theme) => ({
 const features = [
   {
     icon: "reactjs",
-    title: 'Free and open source',
+    title: 'reactjs',
     description: 'All packages are published under MIT license, you can use Mantine in any project',
   },
   {
     icon: "nextjs",
-    title: 'Flexible',
+    title: 'nextjs',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "gatsbyJs",
-    title: 'Flexible',
+    title: 'gatsbyJs',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "wordpress",
-    title: 'Flexible',
+    title: 'wordpress',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "typeScript",
-    title: 'No annoying focus ring',
+    title: 'typeScript',
     description:
       'With new :focus-visible selector focus ring will appear only when user navigates with keyboard',
   },
   {
     icon: "javaScript",
-    title: 'Flexible',
+    title: 'javaScript',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "html5",
-    title: 'Flexible',
+    title: 'html5',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "css3",
-    title: 'Flexible',
+    title: 'css3',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "nodeJs",
-    title: 'Flexible',
+    title: 'nodeJs',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "dotNet",
-    title: 'Flexible',
+    title: 'dotNet',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "aws",
-    title: 'Flexible',
+    title: 'aws',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   },
   {
     icon: "azure",
-    title: 'TypeScript based',
+    title: 'azure',
     description: 'Build type safe applications, all components and hooks export types',
   },
   {
     icon: "googleCloud",
-    title: 'Flexible',
+    title: 'googleCloud',
     description:
       'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
   }
@@ -110,7 +110,7 @@ export function FeaturesWithTitle() {
   const { classes } = useStyles();
 
   const items = features.map((feature) => (
-    <div key={feature.title}>
+    <div key={feature.icon}>
       <ThemeIcon
         size={64}
         radius="md"

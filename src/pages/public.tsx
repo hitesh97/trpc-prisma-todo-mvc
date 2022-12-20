@@ -1,23 +1,24 @@
 import { Container } from "@mantine/core";
 import type { NextPage } from "next";
-import { ActionCardsGrid } from "../components/ActionCardsGrid";
+// import { ActionCardsGrid } from "../components/ActionCardsGrid";
 import { ClientsCarousel } from "../components/ClientsCarousel";
-import { FeaturesWithCards } from "../components/FeaturesWithCards";
-import { FeaturesWithIcons } from "../components/FeaturesWithIcons";
+// import { FeaturesWithCards } from "../components/FeaturesWithCards";
+// import { FeaturesWithIcons } from "../components/FeaturesWithIcons";
 import { FeaturesWithImageIcons } from "../components/FeaturesWithImageIcons";
-import { FeaturesWithMontoneIcons } from "../components/FeaturesWithMontoneIcons";
+// import { FeaturesWithMontoneIcons } from "../components/FeaturesWithMontoneIcons";
 // import Link from "next/link";
 import { FeaturesWithTitle } from "../components/FeaturesWithTitle";
-import { HeroCarousel } from "../components/HeroCarousel";
+// import { HeroCarousel } from "../components/HeroCarousel";
 import { HeroWithBullets } from "../components/HeroWithBullets";
 import { ContactUs } from "../components/ContactUs";
+import { NotificationsProvider } from "@mantine/notifications";
 
 const PublicArea: NextPage = () => {
   return (
-    <>
+    <NotificationsProvider>
       {/*<HeroCarousel />*/}
       <HeroWithBullets />
-      <FeaturesWithImageIcons /> 
+      <FeaturesWithImageIcons />
       <FeaturesWithTitle />
       <ClientsCarousel />
       <ContactUs />
@@ -25,8 +26,7 @@ const PublicArea: NextPage = () => {
       <FeaturesWithIcons />
   <ActionCardsGrid /> 
       <FeaturesWithMontoneIcons /> */}
-
-    </>
+    </NotificationsProvider>
   );
 };
 

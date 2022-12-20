@@ -3,8 +3,8 @@ export const siteLinks = {
   contactUs: "#contactus",
   ourservices: "#ourservices",
   ourtechstack:"#ourtechstack",
-  login: "user/login",
-  signUp: "user/signup"
+  login: "/user/login",
+  signUp: "/user/register"
 }
 
 export default {

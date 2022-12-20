@@ -4,7 +4,10 @@ import { useRouter } from "next/router";
 import { trpc } from '../../utils/trpc';
 import Link from "next/link";
 
-const RegisterPage = () => {
+import dynamic from "next/dynamic";
+import Layout from "../../layout/Layout";
+
+const RegisterPage2 = () => {
   const { handleSubmit, register } = useForm<CreateUserInput>();
   const router = useRouter();
 
@@ -40,5 +43,21 @@ const RegisterPage = () => {
     </>
   )
 };
+
+
+
+
+const LoginForm = dynamic(() => import("../../components/LoginForm"), {
+  ssr: false,
+});
+
+function RegisterPage() {
+  return (
+    <Layout>
+      <LoginForm logintype="register" />
+    </Layout>
+  );
+}
+
 
 export default RegisterPage;

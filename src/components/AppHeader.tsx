@@ -30,6 +30,9 @@ import { useUserAuthenticated } from '../providers/authProider/AuthProvider';
 import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle';
 import { UserAvatar, UserProfileMockData } from './UserAvatar';
 import { AkrutiConsIcon } from './AkrutiConsIcon';
+import { siteLinks } from './mockData/footerData';
+import { useEffect, useState } from 'react';
+import { env } from 'process';
 
 
 const useStyles = createStyles((theme) => ({
@@ -130,12 +133,17 @@ const mockdata = [
   },
 ];
 
-export function AppHeader() {
+export function AppHeader({showSignup, ...rest}: {showSignup: boolean, rest:any}) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const [userProfileOpen, { toggle: openUserProfile }] = useDisclosure(false);
   const { classes, theme } = useStyles();
   const isOnline = useUserAuthenticated();
+  const [isMounted, setMounted] = useState(false);
+
+  useEffect(()=>{
+    setMounted(true);
+  }, [])
 
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
@@ -175,12 +183,15 @@ export function AppHeader() {
   );
 
   const SignUpMenuItem = () => {
+    if(isMounted && !process.env.showSignUp){
+      return null
+    }
     return (
       <>
-        <Button variant="subtle" component="a" href="/user/login">
+        <Button variant="subtle" component="a" href={siteLinks.login}>
           Log in
         </Button>
-        <Button component="a" href="/user/signup">
+        <Button component="a" href={siteLinks.signUp}>
           Sign up
         </Button>
       </>
