@@ -178,12 +178,12 @@ export default function TodosPage({
   const allTasks = trpc.todo.all.useQuery(undefined, {
     staleTime: 3000,
   });
-  const utils = trpc.useContext();
+  const trpcContext = trpc.useContext();
   const addTask = trpc.todo.add.useMutation({
     async onMutate({ text }) {
-      await utils.todo.all.cancel();
+      await trpcContext.todo.all.cancel();
       const tasks = allTasks.data ?? [];
-      utils.todo.all.setData(undefined, [
+      trpcContext.todo.all.setData(undefined, [
         ...tasks,
         {
           id: `${Math.random()}`,
@@ -197,9 +197,9 @@ export default function TodosPage({
 
   const clearCompleted = trpc.todo.clearCompleted.useMutation({
     async onMutate() {
-      await utils.todo.all.cancel();
+      await trpcContext.todo.all.cancel();
       const tasks = allTasks.data ?? [];
-      utils.todo.all.setData(
+      trpcContext.todo.all.setData(
         undefined,
         tasks.filter((t) => !t.completed),
       );
@@ -212,9 +212,9 @@ export default function TodosPage({
     // doing this here rather than in `onSettled()`
     // to avoid race conditions if you're clicking fast
     if (number === 0) {
-      utils.todo.all.invalidate();
+      trpcContext.todo.all.invalidate();
     }
-  }, [number, utils]);
+  }, [number, trpcContext]);
   return (
     <>
       <Head>
@@ -378,10 +378,8 @@ export const getStaticProps = async (
 
   await ssg.todo.all.fetch();
 
-  // console.log('state', ssg.dehydrate());
   return {
     props: {
-      trpcState: ssg.dehydrate(),
       filter: context.params?.filter ?? 'all',
     },
     revalidate: 1,
